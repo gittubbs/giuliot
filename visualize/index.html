@@ -13,23 +13,16 @@
         document.addEventListener('DOMContentLoaded', function () {
             var myChart = Highcharts.chart('container', {
                 chart: {
-                    type: 'column'
+                    type: 'line',
+                    zoomType: 'xy'
                 },
                 data: {
                     enablePolling: true,
                     csvURL: window.location.origin + '/studies/data_3.csv'
                 },
                 title: {
-                    text: 'Marione'
+                    text: 'Schema stanza'
                 },
-                xAxis: [{
-                    labels: {
-                        formatter: function () {
-                            
-                            return Highcharts.dateFormat('%Y %M %d', this.value);
-                        }
-                    }
-                }],
                 yAxis: [
                     {
                         title: {
