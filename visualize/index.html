@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+</head>
+
+<body>
+    <div id="container" style="width:100%; height:400px;"></div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var myChart = Highcharts.chart('container', {
+                chart: {
+                    type: 'column'
+                },
+                data: {
+                    enablePolling: true,
+                    csvURL: window.location.origin + '/studies/data_3.csv'
+                },
+                title: {
+                    text: 'Marione'
+                },
+                xAxis: [{
+                    labels: {
+                        formatter: function () {
+                            
+                            return Highcharts.dateFormat('%Y %M %d', this.value);
+                        }
+                    }
+                }],
+                yAxis: [
+                    {
+                        title: {
+                            text: 'Gradi C'
+                        }
+                    },
+                    {
+                        title: {
+                            text: 'Umidita percentuale'
+                        },
+                        opposite: true
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -14,6 +14,8 @@ air = AirPurifierMiot(ip,token)
 while(True):
     prop = air.get_properties()
     dateTimeObj = datetime.now()
+
+    
     #print(prop)
 
     temp = 0
@@ -30,11 +32,9 @@ while(True):
 
     with open('data.csv', mode = 'a') as csv_file:
         writer = csv.writer(csv_file, delimiter=',',quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        #Data, Orario, Temperatura, Umidità, AQI
-        writer.writerow([dateTimeObj.strftime("%x"),dateTimeObj.strftime("%X"),temp,hum,aqi])
+        #Timestamp, Temperatura, Umidità, AQI
+        writer.writerow([round(time.time() * 1000),temp,hum,aqi])
         
-
-
     print(dateTimeObj)
     print(temp)
     print(hum)
