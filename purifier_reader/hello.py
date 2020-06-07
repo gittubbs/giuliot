@@ -1,3 +1,4 @@
+#!/usr/bin/env pipenv-shebang
 import csv
 import time
 import yaml
@@ -40,6 +41,6 @@ while(True):
         print(temp)
         print(hum)
         print(aqi)
-        time.sleep(5.0)
+        time.sleep(15.0 * 60)
     except Exception:
         pass
